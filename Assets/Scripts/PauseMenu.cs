@@ -13,8 +13,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Home()
     {
-        SceneManager.LoadScene("Main Menu");
-        Time.timeScale = 1; // Unpauses the game while the pause menu is open
+        SceneManager.LoadScene("Main Menu");    // Goes to the main menu
     }
 
     public void Resume()
