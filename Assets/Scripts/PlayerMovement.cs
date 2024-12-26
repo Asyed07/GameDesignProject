@@ -4,7 +4,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public CharacterController2D controller;
     public Animator animator;
-    public float runSpeed = 35f;
+    public float runSpeed = 25f;
 
     float horizontalMove = 0f;
     bool jump = false;
@@ -16,11 +16,21 @@ public class PlayerMovement : MonoBehaviour
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 
         animator.SetFloat("PlayerSpeed", Mathf.Abs(horizontalMove));
-
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            runSpeed += 10;
+        }
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            runSpeed -= 10;
+        }
         if (Input.GetButtonDown("Jump"))
         {
-            jump = true;
-            animator.SetBool("IsJumping", true);
+            if (!crouch)
+            {
+                jump = true;
+                animator.SetBool("IsJumping", true);
+            }
         }
 
         if (Input.GetButtonDown("Crouch"))
