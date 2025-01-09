@@ -3,7 +3,8 @@ using UnityEngine;
 public class QuestTab : MonoBehaviour
 {
     [SerializeField] GameObject questTab;
-    private bool QuestisOpen = false;
+
+    private bool QuestisOpen = true;
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Tab))
@@ -20,11 +21,13 @@ public class QuestTab : MonoBehaviour
     }
     public void CloseQuests()
     {
-
+        questTab.SetActive(false);
+        QuestisOpen = false;
     }
 
     public void OpenQuests()
     {
-
+        questTab.SetActive(true);
+        QuestisOpen = true;
     }
 }
