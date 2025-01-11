@@ -19,6 +19,10 @@ public class PauseMenu : MonoBehaviour
                 Pause();
             }
         }
+        if (Input.GetKeyUp(KeyCode.R))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
 
     public void Pause()
