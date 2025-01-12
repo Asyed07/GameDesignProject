@@ -3,26 +3,30 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public int MaxEnemyHealth = 20;
-    public int Enemyhealth;
+    public int EnemyHealth;
 
     public EnemyHealth enemyHealth;
 
-    void Start()
+    private void Start()
     {
-        Enemyhealth = MaxEnemyHealth;
+        EnemyHealth = MaxEnemyHealth;
         enemyHealth.SetMaxHealth(MaxEnemyHealth);
     }
 
-    void Update()
+    public void TakeDamage(int damage)
     {
-        if (Input.GetKeyUp(KeyCode.Space))
+        EnemyHealth -= damage;
+        enemyHealth.SetHealth(EnemyHealth);
+
+        if (EnemyHealth <= 0)
         {
-            EnemyDamage(1);
+            Die();
         }
     }
-    void EnemyDamage(int damage)
+
+    void Die()
     {
-        Enemyhealth -= damage;
-        enemyHealth.SetHealth(Enemyhealth);
+        // Implement enemy death behavior, such as playing a death animation, disabling the enemy, etc.
+        gameObject.SetActive(false); // Temporarily disable the enemy
     }
 }
