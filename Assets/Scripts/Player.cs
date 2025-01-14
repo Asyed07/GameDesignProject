@@ -56,34 +56,47 @@ public class Player : MonoBehaviour
     }
     void Attack()
     {
-        // Only trigger the attack if enough time has passed since the last attack
-        if (Time.time - lastAttackTime >= attackCooldown && !isAttacking)
+        if (!isAttacking)
         {
-            lastAttackTime = Time.time; // Update the last attack time
             isAttacking = true;
-            animator.SetBool("IsAttacking", true); // Trigger attack animation
+            animator.SetBool("IsAttacking", true);
         }
 
-        LayerMask enemyLayer = LayerMask.GetMask("Enemy");
+        // Define the origin of the boxcast
+        Vector2 attackOrigin = new Vector2(transform.position.x, transform.position.y);
 
-        // (Optional) Perform raycast and deal damage if needed
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right, 1f, enemyLayer);
+        // Define the size of the box (width and height)
+        Vector2 boxSize = new Vector2(1.5f, 0.5f); // Adjust these values for width and height
 
-        Debug.DrawRay(transform.position, transform.right * 1f, Color.red, 1f); // Visualize the ray
+        // Flip the direction based on the player's facing direction
+        Vector2 raycastDirection = Vector2.right * Mathf.Sign(transform.localScale.x);
 
-        if (hit.collider != null)
+        // Perform the BoxCast
+        RaycastHit2D hit = Physics2D.BoxCast(
+            attackOrigin,      // Origin of the box
+            boxSize,           // Size of the box (width, height)
+            0f,                // Angle of the box (0 means no rotation)
+            raycastDirection,  // Direction of the box
+            1f,                // Distance the box moves
+            LayerMask.GetMask("Enemy") // Optional: Filter by layers
+        );
+
+        // Debug the BoxCast in the Scene view
+        Debug.DrawRay(attackOrigin, raycastDirection * 1f, Color.red, 0.1f); // Visualize center ray
+        Debug.DrawRay(attackOrigin + new Vector2(0, boxSize.y / 2), raycastDirection * 1f, Color.red, 0.1f); // Top edge
+        Debug.DrawRay(attackOrigin - new Vector2(0, boxSize.y / 2), raycastDirection * 1f, Color.red, 0.1f); // Bottom edge
+
+        if (hit.collider != null && hit.collider.CompareTag("Enemy"))
         {
-            // Only trigger damage if the ray hits an object tagged as "Enemy"
-            if (hit.collider.CompareTag("Enemy"))
+            Enemy enemy = hit.collider.GetComponent<Enemy>();
+            if (enemy != null)
             {
-                Enemy enemy = hit.collider.GetComponent<Enemy>();
-                if (enemy != null)
-                {
-                    enemy.TakeDamage(attackDamage);
-                }
+                enemy.TakeDamage(attackDamage);
             }
         }
     }
+
+
 
 
     void TriggerGameOver()
