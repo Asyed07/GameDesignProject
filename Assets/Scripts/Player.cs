@@ -63,7 +63,7 @@ public class Player : MonoBehaviour
         }
 
         // Define the origin of the boxcast
-        Vector2 attackOrigin = new Vector2(transform.position.x, transform.position.y);
+        Vector2 attackOrigin = new Vector2(transform.position.x, (float)(transform.position.y - 0.5));
 
         // Define the size of the box (width and height)
         Vector2 boxSize = new Vector2(1.5f, 0.5f); // Adjust these values for width and height

@@ -20,11 +20,11 @@ public class Enemy : MonoBehaviour
 
         if (EnemyHealth <= 0)
         {
-            Die();
+            DestroyEnemy();
         }
     }
 
-    void Die()
+    void DestroyEnemy()
     {
         // Implement enemy death behavior, such as playing a death animation, disabling the enemy, etc.
         gameObject.SetActive(false); // Temporarily disable the enemy
