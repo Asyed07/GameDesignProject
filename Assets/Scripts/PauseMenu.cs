@@ -45,9 +45,9 @@ public class PauseMenu : MonoBehaviour
     }
 
 
-    public void Restart(string sceneName)
+    public void Restart()
     {
-        SceneManager.LoadScene(sceneName);  // Restarts the level selected
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);  // Restarts the level selected
         Time.timeScale = 1;
     }
 }
