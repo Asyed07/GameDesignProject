@@ -21,7 +21,10 @@ public class PauseMenu : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.R))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            if (isPaused == false)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
         }
     }
 
@@ -35,6 +38,7 @@ public class PauseMenu : MonoBehaviour
     public void Home()
     {
         SceneManager.LoadScene("Menu");    // Goes to the main menu
+        Time.timeScale = 1;
     }
 
     public void Resume()

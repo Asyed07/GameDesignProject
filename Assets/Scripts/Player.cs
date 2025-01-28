@@ -9,7 +9,6 @@ public class Player : MonoBehaviour
     public int attackDamage = 5; // The damage the player deals to the enemy
     public Animator animator;
     public float attackCooldown = 0.5f; // Time in seconds before another attack can be triggered
-    private float lastAttackTime = 0f;
 
     // Reference to the Game Over screen UI
     public GameObject GameOverScreen;
