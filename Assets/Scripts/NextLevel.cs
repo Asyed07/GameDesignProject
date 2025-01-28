@@ -14,6 +14,7 @@ public class NextLevel : MonoBehaviour
         if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
         {
             SceneManager.LoadScene(nextSceneIndex);
+            Time.timeScale = 1;
         }
         else
         {
