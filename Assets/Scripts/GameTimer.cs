@@ -29,7 +29,7 @@ public class GameTimer : MonoBehaviour
         if (timerText == null)
         {
             // If the Text UI isn't assigned, try finding it in the scene
-            timerText = GameObject.Find("TimerText")?.GetComponent<Text>();
+            timerText = GameObject.Find("TimerText")?.GetComponent<TextMeshProUGUI>();
         }
     }
 
@@ -47,7 +47,7 @@ public class GameTimer : MonoBehaviour
             // Update the timer text if it's available
             if (timerText != null)
             {
-                timerText.text = string.Format("Time: {0:00}:{1:00}", minutes, seconds);
+                timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
             }
         }
     }

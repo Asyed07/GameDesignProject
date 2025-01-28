@@ -4,7 +4,7 @@ public class GameInitializer : MonoBehaviour
 {
     void Start()
     {
-        GameTimer timer = FindObjectOfType<GameTimer>();
+        GameTimer timer = FindFirstObjectByType<GameTimer>();
         if (timer != null)
         {
             timer.StartTimer();
