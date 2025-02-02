@@ -13506,6 +13506,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxEnemyHealth: 20
   EnemyHealth: 20
+  EnemyAttackDamage: 5
   enemyHealth: {fileID: 1016666343}
 --- !u!58 &1534282838
 CircleCollider2D:

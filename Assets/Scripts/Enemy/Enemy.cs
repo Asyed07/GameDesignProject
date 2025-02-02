@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public int MaxEnemyHealth = 20;
+    public int MaxEnemyHealth = 40;
     public int EnemyHealth;
-
+    public int EnemyAttackDamage = 5;
     public EnemyHealth enemyHealth;
 
     private void Start()
@@ -28,5 +28,17 @@ public class Enemy : MonoBehaviour
     {
         // Implement enemy death behavior, such as playing a death animation, disabling the enemy, etc.
         gameObject.SetActive(false); // Temporarily disable the enemy
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Player player = collision.gameObject.GetComponent<Player>();
+            if (player != null)
+            {
+                player.DamageTaken(EnemyAttackDamage);
+            }
+        }
     }
 }

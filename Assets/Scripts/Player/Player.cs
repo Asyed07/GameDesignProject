@@ -2,11 +2,10 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public int MaxHealth = 20;
+    public int MaxHealth = 75;
     public int Health;
-
     public HealthBar HBar;
-    public int attackDamage = 5; // The damage the player deals to the enemy
+    public int attackDamage = 10; // The damage the player deals to the enemy
     public Animator animator;
 
     // Reference to the Game Over screen UI
