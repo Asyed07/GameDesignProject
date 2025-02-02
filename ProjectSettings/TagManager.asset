@@ -49,6 +49,9 @@ TagManager:
   - name: Finish + Extras
     uniqueID: 2697932433
     locked: 0
+  - name: Enemy
+    uniqueID: 3123396675
+    locked: 0
   - name: ForeGround
     uniqueID: 2899274277
     locked: 0

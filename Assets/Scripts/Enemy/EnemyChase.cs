@@ -9,6 +9,7 @@ public class EnemyChase : MonoBehaviour
     public float speed; // Speed at which the enemy moves towards the player.
     private float distance; // Distance between the enemy and the player.
     public float distanceFromPlayer; // Minimum distance the enemy maintains from the player.
+    public float flipMultiplier = 1f;
 
     void Update()
     {
@@ -25,14 +26,17 @@ public class EnemyChase : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
         }
 
-        // Determine whether the enemy should face left or right.
-        if (direction.x > 0) // Player is to the right of the enemy.
+        Vector3 currentScale = transform.localScale; // Get the current scale
+
+        if (direction.x > 0) // Player is to the right of the enemy
         {
-            transform.localScale = new Vector3(-3f, 3f, 1f); // Face right.
+            currentScale.x = -Mathf.Abs(currentScale.x) * flipMultiplier; // Ensure facing right
         }
-        else if (direction.x < 0) // Player is to the left of the enemy.
+        else if (direction.x < 0) // Player is to the left of the enemy
         {
-            transform.localScale = new Vector3(3f, 3f, 1f); // Face left.
+            currentScale.x = Mathf.Abs(currentScale.x) * flipMultiplier; // Ensure facing left
         }
+
+        transform.localScale = currentScale; // Apply the adjusted scale
     }
 }
