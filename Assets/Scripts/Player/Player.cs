@@ -8,7 +8,6 @@ public class Player : MonoBehaviour
     public HealthBar HBar;
     public int attackDamage = 5; // The damage the player deals to the enemy
     public Animator animator;
-    public float attackCooldown = 0.5f; // Time in seconds before another attack can be triggered
 
     // Reference to the Game Over screen UI
     public GameObject GameOverScreen;
@@ -41,7 +40,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    void DamageTaken(int damage)
+    public void DamageTaken(int damage)
     {
         Health -= damage;
         HBar.SetHealth(Health);

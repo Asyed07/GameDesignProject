@@ -21,7 +21,7 @@ public class PauseMenu : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.R))
         {
-            if (isPaused == false)
+            if (Time.timeScale == 1)
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }

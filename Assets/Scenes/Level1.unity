@@ -13541,8 +13541,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.06, y: -0.07}
-  m_Radius: 0.12
+  m_Offset: {x: -0.045, y: -0.08}
+  m_Radius: 0.11
 --- !u!50 &1534282839
 Rigidbody2D:
   serializedVersion: 5
@@ -13551,14 +13551,14 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1534282832}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 1000000
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -13569,7 +13569,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!1 &1539072113
 GameObject:
   m_ObjectHideFlags: 0
@@ -13704,7 +13704,7 @@ MonoBehaviour:
       - m_Target: {fileID: 97093861}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
         m_MethodName: Restart
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -16342,7 +16342,6 @@ MonoBehaviour:
   HBar: {fileID: 922561598}
   attackDamage: 15
   animator: {fileID: 1893893831}
-  attackCooldown: 0
   GameOverScreen: {fileID: 1539072113}
 --- !u!1 &1904079076
 GameObject:
