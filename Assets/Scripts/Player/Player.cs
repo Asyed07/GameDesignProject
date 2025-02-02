@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -22,6 +23,22 @@ public class Player : MonoBehaviour
         if (GameOverScreen != null)
         {
             GameOverScreen.SetActive(false);
+        }
+
+        StartCoroutine(HealthRegen());
+    }
+
+    private IEnumerator HealthRegen()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(5f);
+
+            if (Health < MaxHealth)
+            {
+                Health += 5;
+                HBar.SetHealth(Health);
+            }
         }
     }
 
