@@ -32,11 +32,11 @@ public class Player : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(2f);
 
             if (Health < MaxHealth)
             {
-                Health += 5;
+                Health += 1;
                 HBar.SetHealth(Health);
             }
         }
@@ -44,11 +44,6 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            DamageTaken(1);
-        }
-
         // Attack on Q or Left Click
         if ((Input.GetKeyDown(KeyCode.Q) || Input.GetMouseButtonDown(0)) && !isAttacking)
         {
