@@ -3,7 +3,20 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public void GoToScene(string sceneName) // Loads the scene selected in unity
+    public void StartGame()
+    {
+        if (PlayerPrefs.GetInt("FirstTime", 0) == 1) // Check if difficulty has been selected
+        {
+            int savedLevel = PlayerPrefs.GetInt("CurrentLevel", 1); // Load saved level
+            SceneManager.LoadScene("Level" + savedLevel); // Load the saved level
+        }
+        else
+        {
+            SceneManager.LoadScene("DifficultySelection"); // Load difficulty selection screen
+        }
+    }
+
+    public void GoToScene(string sceneName) // Loads the scene selected in Unity
     {
         SceneManager.LoadScene(sceneName);
     }

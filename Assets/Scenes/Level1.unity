@@ -13523,8 +13523,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1893893823}
-  speed: 4
-  distanceFromPlayer: 8.5
+  speed: 5.3
+  distanceFromPlayer: 7.5
   flipMultiplier: 1
 --- !u!114 &1534282837
 MonoBehaviour:
@@ -16390,7 +16390,6 @@ MonoBehaviour:
   MaxHealth: 75
   Health: 0
   HBar: {fileID: 922561598}
-  attackDamage: 7
   animator: {fileID: 1893893831}
   GameOverScreen: {fileID: 1539072113}
 --- !u!1 &1904079076

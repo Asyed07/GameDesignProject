@@ -3,20 +3,23 @@ using System.Collections; // Required for Coroutines
 
 public class Enemy : MonoBehaviour
 {
-    public int MaxEnemyHealth = 40;
-    public int EnemyHealth;
-    public int EnemyAttackDamage = 5;
+    public float MaxEnemyHealth = 40;
+    public float EnemyHealth;
+    public float EnemyAttackDamage = 5;
     public EnemyHealth enemyHealth;
-
+    private float difficultyMultiplier;
     private bool isPlayerInContact = false; // Track player contact
 
     private void Start()
     {
+        difficultyMultiplier = PlayerPrefs.GetFloat("DifficultyMultiplier", 1f);
+        MaxEnemyHealth = MaxEnemyHealth * difficultyMultiplier;
+        EnemyAttackDamage = EnemyAttackDamage * Mathf.Pow(difficultyMultiplier, 3);
         EnemyHealth = MaxEnemyHealth;
         enemyHealth.SetMaxHealth(MaxEnemyHealth);
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         EnemyHealth -= damage;
         enemyHealth.SetHealth(EnemyHealth);

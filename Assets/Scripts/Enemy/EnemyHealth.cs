@@ -7,7 +7,7 @@ public class EnemyHealth : MonoBehaviour
     public Gradient EnemyHealthGradient;
     public Image newBar;
 
-    public void SetMaxHealth(int health)
+    public void SetMaxHealth(float health)
     {
         EnemySlider.maxValue = health;
         EnemySlider.value = health;
@@ -15,7 +15,7 @@ public class EnemyHealth : MonoBehaviour
         newBar.color = EnemyHealthGradient.Evaluate(1f);
     }
 
-    public void SetHealth(int health)
+    public void SetHealth(float health)
     {
         EnemySlider.value = health;
         newBar.color = EnemyHealthGradient.Evaluate(EnemySlider.normalizedValue);

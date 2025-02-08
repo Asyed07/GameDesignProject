@@ -3,12 +3,13 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public int MaxHealth = 75;
-    public int Health;
+    public float MaxHealth = 75;
+    public float Health = 75;
     public HealthBar HBar;
-    public int attackDamage = 10; // The damage the player deals to the enemy
+    private float attackDamage = 7; // The damage the player deals to the enemy
     public Animator animator;
-
+    private float difficultyMultiplier;
+    private bool Healing = false;
     // Reference to the Game Over screen UI
     public GameObject GameOverScreen;
 
@@ -16,6 +17,8 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        difficultyMultiplier = PlayerPrefs.GetFloat("DifficultyMultiplier", 1f);
+        MaxHealth = MaxHealth * difficultyMultiplier;
         Health = MaxHealth;
         HBar.SetMaxHealth(MaxHealth);
 
@@ -36,8 +39,11 @@ public class Player : MonoBehaviour
 
             if (Health < MaxHealth)
             {
-                Health += 1;
-                HBar.SetHealth(Health);
+                if (Healing != false)
+                {
+                    Health += 5 - (difficultyMultiplier - 1) * 10;
+                    HBar.SetHealth(Health);
+                }
             }
         }
     }
@@ -51,7 +57,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void DamageTaken(int damage)
+    public void DamageTaken(float damage)
     {
         Health -= damage;
         HBar.SetHealth(Health);
@@ -100,7 +106,7 @@ public class Player : MonoBehaviour
             Enemy enemy = hit.collider.GetComponent<Enemy>();
             if (enemy != null)
             {
-                enemy.TakeDamage(attackDamage);
+                enemy.TakeDamage(attackDamage - (difficultyMultiplier - 1) * 10);
             }
         }
     }
