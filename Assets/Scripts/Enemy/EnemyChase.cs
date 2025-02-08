@@ -6,7 +6,7 @@ using UnityEngine;
 public class EnemyChase : MonoBehaviour
 {
     public GameObject player; // Reference to the player GameObject that the enemy will chase.
-    public float speed = 5; // Speed at which the enemy moves towards the player.
+    private float speed = 5; // Speed at which the enemy moves towards the player.
     private float distance; // Distance between the enemy and the player.
     public float distanceFromPlayer; // Minimum distance the enemy maintains from the player.
     public float flipMultiplier = 1f;

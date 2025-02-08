@@ -5,25 +5,20 @@ public class EnemyFireScript : MonoBehaviour
     private GameObject player;
     private Rigidbody2D rigidBody;
     private int FireDamage = 5;
-    private float baseForce = 3; // Base force added to the enemy's speed
+    private float force = 3;
     private float timer;
     private float difficultyMultiplier;
-    public float speed { get; private set; } // Speed of the enemy
+    public float speed { get; private set; }
 
     void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");
         difficultyMultiplier = PlayerPrefs.GetFloat("DifficultyMultiplier", 1f);
-
-        // Calculate the fireball's force based on the enemy's speed
-        float finalForce = (speed + baseForce) * difficultyMultiplier;
-
         if (player != null)
         {
-            Vector3 direction = (player.transform.position - transform.position).normalized;
-            rigidBody.linearVelocity = direction * finalForce;
-
+            Vector3 direction = player.transform.position - transform.position;
+            rigidBody.linearVelocity = new Vector2(direction.x, direction.y).normalized * force * Mathf.Pow(difficultyMultiplier, 2);
             float rot = Mathf.Atan2(-direction.y, -direction.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0, 0, rot + 180);
         }
@@ -49,11 +44,5 @@ public class EnemyFireScript : MonoBehaviour
             }
             Destroy(gameObject);
         }
-    }
-
-    // Public method to set the speed of the fireball
-    public void SetSpeed(float enemySpeed)
-    {
-        speed = enemySpeed;
     }
 }
