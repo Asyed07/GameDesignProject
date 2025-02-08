@@ -11511,6 +11511,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1048175732}
   m_CullTransparentMesh: 1
+--- !u!1 &1055499495
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1055499496}
+  m_Layer: 8
+  m_Name: FireBallPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1055499496
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1055499495}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.16, y: -0.1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1534282835}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1075494786
 GameObject:
   m_ObjectHideFlags: 0
@@ -13377,6 +13408,7 @@ GameObject:
   - component: {fileID: 1534282837}
   - component: {fileID: 1534282838}
   - component: {fileID: 1534282839}
+  - component: {fileID: 1534282840}
   m_Layer: 8
   m_Name: Eagle
   m_TagString: Enemy
@@ -13470,11 +13502,12 @@ Transform:
   m_GameObject: {fileID: 1534282832}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -28.84, y: 3.09, z: 1.7216592}
+  m_LocalPosition: {x: -28.357979, y: 2.5002503, z: 1.7216592}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 79473315}
+  - {fileID: 1055499496}
   m_Father: {fileID: 1453616965}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1534282836
@@ -13491,7 +13524,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1893893823}
   speed: 4
-  distanceFromPlayer: 3
+  distanceFromPlayer: 8.5
   flipMultiplier: 1
 --- !u!114 &1534282837
 MonoBehaviour:
@@ -13572,6 +13605,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &1534282840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1534282832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaf250dbdf4f9624ca548048c6ad5cce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FireBall: {fileID: 6269320895333232022, guid: 510d88e8c70a91146beaf7e4928b93ea, type: 3}
+  FireBallPos: {fileID: 1055499496}
+  distanceBetween: 8
 --- !u!1 &1539072113
 GameObject:
   m_ObjectHideFlags: 0
