@@ -51,7 +51,7 @@ public class Player : MonoBehaviour
     private void Update()
     {
         // Attack on Q or Left Click
-        if ((Input.GetKeyDown(KeyCode.Q) || Input.GetMouseButtonDown(0)) && !isAttacking)
+        if ((Input.GetKeyDown(KeyCode.Q) || Input.GetMouseButtonDown(0)) && !isAttacking && Time.timeScale != 0)
         {
             Attack();
         }
