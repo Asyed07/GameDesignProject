@@ -27,7 +27,7 @@ public class EnemyFireScript : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        if (timer > 6)
+        if (timer > 10)
         {
             Destroy(gameObject);
         }
