@@ -7,7 +7,7 @@ public class QuestTab : MonoBehaviour
     private bool QuestisOpen = true;
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.Tab) && Time.timeScale > 0)
         {
             if (QuestisOpen)
             {
