@@ -3,15 +3,15 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public float MaxHealth = 75;
-    public float Health = 75;
+    public float MaxHealth = 75; // Used to keep track of helth limit
+    public float Health = 75; // Keeps track of players health
     public HealthBar HBar;
     private float attackDamage = 7; // The damage the player deals to the enemy
     public Animator animator;
-    private float difficultyMultiplier;
+    private float difficultyMultiplier; // Used to adjust different stats
     private bool Healing = false;
-    // Reference to the Game Over screen UI
-    public GameObject GameOverScreen;
+    
+    public GameObject GameOverScreen; // Reference to the Game Over screen UI
 
     private bool isAttacking = false;
 
@@ -22,8 +22,7 @@ public class Player : MonoBehaviour
         Health = MaxHealth;
         HBar.SetMaxHealth(MaxHealth);
 
-        // Ensure Game Over screen is initially disabled
-        if (GameOverScreen != null)
+        if (GameOverScreen != null) // Ensure Game Over screen is initially disabled
         {
             GameOverScreen.SetActive(false);
         }
@@ -62,10 +61,10 @@ public class Player : MonoBehaviour
         Health -= damage;
         HBar.SetHealth(Health);
 
-        // Check if health has reached zero
-        if (Health <= 0)
+        
+        if (Health <= 0) // Check if health has reached zero
         {
-            Health = 0; // Clamp health to zero
+            Health = 0; // Keep health positive
             TriggerGameOver();
         }
     }
