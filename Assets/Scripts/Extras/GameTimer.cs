@@ -8,7 +8,7 @@ public class GameTimer : MonoBehaviour
     public TextMeshProUGUI timerText;  // Reference to the TextMeshPro UI component
     public LevelComplete canvasActive;
     private float elapsedTime = 0f;   // Time elapsed since the start of the game
-    private bool isTimerRunning = true;
+    private bool isTimerRunning = true; // Keeps track of whether timer is runnning or not
 
     private static GameTimer instance;  // Singleton instance for persistence
 
@@ -30,7 +30,7 @@ public class GameTimer : MonoBehaviour
     {
         if (timerText == null)
         {
-            // Try finding the TimerText object in the scene
+            // Find the TimerText object in the scene if it isn't already found
             timerText = GameObject.Find("TimerText")?.GetComponent<TextMeshProUGUI>();
         }
     }
@@ -39,15 +39,14 @@ public class GameTimer : MonoBehaviour
     {
         if (isTimerRunning)
         {
-            // Increment the elapsed time
-            elapsedTime += Time.deltaTime;
+            elapsedTime += Time.deltaTime; // Increment the elapsed time
 
             // Convert elapsed time to minutes, seconds, and milliseconds
             int minutes = Mathf.FloorToInt((elapsedTime % 3600) / 60);
             int seconds = Mathf.FloorToInt(elapsedTime % 60);
             int milliseconds = Mathf.FloorToInt((elapsedTime % 1) * 100);
 
-            // Update the TextMeshPro timer text
+            // Update the TextMeshPro timer text in the correct format
             if (timerText != null)
             {
                 timerText.text = string.Format("{0:00}:{1:00}:{2:00}", minutes, seconds, milliseconds);
@@ -57,34 +56,30 @@ public class GameTimer : MonoBehaviour
 
     public void StopTimer()
     {
-        isTimerRunning = false;
+        isTimerRunning = false; // 
     }
 
     public void StartTimer()
     {
         isTimerRunning = true;
     }
-    public float GetElapsedTime()
-    {
-        return elapsedTime;
-    }
 
     public void ResetTimer()
     {
-        elapsedTime = 0f;
+        elapsedTime = 0f; // Reset elapsed time
         isTimerRunning = true;
 
         timerText = GameObject.Find("TimerText")?.GetComponent<TextMeshProUGUI>();
         if (timerText != null)
         {
-            timerText.text = "00:00:00";
+            timerText.text = "00:00:00"; // Reset timer text to 0
         }
     }
 
     public void ResetTimerForSceneReload()
     {
-        elapsedTime = 0f;    // Reset the elapsed time
-        isTimerRunning = true;
+        elapsedTime = 0f; // Reset the elapsed time
+        isTimerRunning = true; // Ensure scene starts with timer running
 
         // Reassign timerText in case the UI is reloaded in the new scene
         timerText = GameObject.Find("TimerText")?.GetComponent<TextMeshProUGUI>();
@@ -104,5 +99,8 @@ public class GameTimer : MonoBehaviour
         // Reset the timer whenever the scene is reloaded
         ResetTimerForSceneReload();
     }
-
+    public float GetElapsedTime()
+    {
+        return elapsedTime;
+    }
 }
