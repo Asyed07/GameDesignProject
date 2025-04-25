@@ -18,9 +18,8 @@ public class Player : MonoBehaviour
     private void Start()
     {
         difficultyMultiplier = PlayerPrefs.GetFloat("DifficultyMultiplier", 1f);
-        MaxHealth = MaxHealth * difficultyMultiplier;
+        MaxHealth = MaxHealth * (1 - difficultyMultiplier);
         Health = MaxHealth;
-        HBar.SetMaxHealth(MaxHealth);
 
         if (GameOverScreen != null) // Ensure Game Over screen is initially disabled
         {
@@ -61,7 +60,6 @@ public class Player : MonoBehaviour
         Health -= damage;
         HBar.SetHealth(Health);
 
-        
         if (Health <= 0) // Check if health has reached zero
         {
             Health = 0; // Keep health positive

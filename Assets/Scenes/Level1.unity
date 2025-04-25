@@ -8676,7 +8676,7 @@ RectTransform:
   m_GameObject: {fileID: 431508861}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 2.9690225}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1231608665}
@@ -8687,7 +8687,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -560.94, y: -309}
+  m_AnchoredPosition: {x: -547.8, y: -293.3}
   m_SizeDelta: {x: 135, y: 135}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &453034029
@@ -21782,11 +21782,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 917000d99cfbee74bb6a4462edd6c652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelCompleteCanvas: {fileID: 61366898}
+  levelCompleteUI: {fileID: 0}
   finishTimeText: {fileID: 808015729}
   bestTimeText: {fileID: 1642666093}
-  gameTimer: {fileID: 1512669073}
   canvasActive: 0
+  gameTimer: {fileID: 1512669073}
 --- !u!61 &1822550521
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -22359,16 +22359,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1872252016}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
+  m_LocalScale: {x: 0.16666667, y: 0.16666667, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1231608665}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 2}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 106, y: 328}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1872252018
