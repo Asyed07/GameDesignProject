@@ -4,7 +4,7 @@ public class ResetProgress : MonoBehaviour
 {
     public void ResetGameProgress()
     {
-        PlayerPrefs.DeleteAll();
-        PlayerPrefs.Save();
+        PlayerPrefs.DeleteAll(); // Delete all stored player preferences
+        PlayerPrefs.Save(); // Save changes immediatly
     }
 }
