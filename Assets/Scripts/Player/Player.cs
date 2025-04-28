@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public float MaxHealth = 75; // Used to keep track of helth limit
+    public float MaxHealth = 75; // Used to keep track of health limit
     public float Health = 75; // Keeps track of players health
     public HealthBar HBar;
     private float attackDamage = 7; // The damage the player deals to the enemy
