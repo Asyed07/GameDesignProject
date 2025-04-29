@@ -20,9 +20,9 @@ public class DifficultyManager : MonoBehaviour
                 break;
         }
 
-        PlayerPrefs.SetString("SelectedDifficulty", difficulty);
-        PlayerPrefs.SetFloat("DifficultyMultiplier", multiplier);
-        PlayerPrefs.SetInt("FirstTime", 1); // Mark that difficulty was selected
+        PlayerPrefs.SetString("SelectedDifficulty", difficulty); // Difficulty selected
+        PlayerPrefs.SetFloat("DifficultyMultiplier", multiplier); // Difficulty selected value
+        PlayerPrefs.SetInt("FirstTime", 1); // Track if player selected a difficulty or not
         PlayerPrefs.Save();
 
         // Load the first level after selecting difficulty

@@ -34,13 +34,4 @@ public class GameProgressManager : MonoBehaviour
     {
         return PlayerPrefs.GetInt(FirstTimeKey, 0) == 0;
     }
-    public static float GetTotalBestTime(string[] levelNames)
-    {
-        float totalBestTime = 0;
-        foreach (string level in levelNames)
-        {
-            totalBestTime += PlayerPrefs.GetFloat("BestTime_" + level, 0);
-        }
-        return totalBestTime;
-    }
 }
